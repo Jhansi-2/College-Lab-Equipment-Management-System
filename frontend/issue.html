@@ -1,0 +1,110 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Issue equipment | LabTrack</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">CL</div>
+        <div>
+          <b>LabTrack</b>
+          <small>Equipment Management</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="/">Overview</a>
+        <a href="/equipment.html">Equipment</a>
+        <a href="/users.html">Users</a>
+        <a class="active" href="/issue.html">Issue equipment</a>
+        <a href="/history.html">Issue history</a>
+      </nav>
+
+      <div class="side-foot">
+        Designed &amp; Developed by<br>
+        <b>Jhansi Sai Laxmi</b>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header>
+        <div>
+          <p class="eyebrow">LENDING</p>
+          <h1>Issue equipment</h1>
+          <p class="muted">Record equipment issued to a registered user.</p>
+        </div>
+      </header>
+
+      <section class="panel">
+        <h2>New issue</h2>
+
+        <form id="issueForm" class="form-grid">
+          <label>
+            Equipment
+            <select id="issueEquipment" required>
+              <option value="">Choose equipment</option>
+            </select>
+          </label>
+
+          <label>
+            User
+            <select id="issueUser" required>
+              <option value="">Choose user</option>
+            </select>
+          </label>
+
+          <label>
+            Quantity
+            <input id="issueQuantity" type="number" min="1" value="1" required>
+          </label>
+
+          <label>
+            Due Date
+            <input id="issueDueDate" type="date" required>
+          </label>
+
+          <div class="form-actions">
+            <button class="button" type="submit">Confirm issue</button>
+          </div>
+        </form>
+
+        <p id="issueMessage" class="message"></p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Active issues</h2>
+          <a class="button secondary" href="/history.html">View all history</a>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Equipment</th>
+                <th>Issued to</th>
+                <th>Issue date</th>
+                <th>Due date</th>
+                <th>Quantity</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="activeIssueRows"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script>
+    loadIssuePage();
+  </script>
+</body>
+</html>
